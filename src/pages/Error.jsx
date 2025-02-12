@@ -1,13 +1,17 @@
-
+import { Link } from 'react-router-dom';
+import error from '../assets/404.png'
 
 
 const Error = () => {
     return (
         <>
-        <div className="p-64 space-y-3">
-        <h2 className="text-7xl text-red-700 text-center font-bold">404</h2>
-        <p className="text-3xl text-center">Non-existing Routes.</p>
-       </div>
+        <div className="space-y-3">
+        <img
+           src={error}
+          className="w-full h-[300px] md:h-[600px]" />
+          <Link to='/' className='btn bg-red-600 text-white text-xl px-6 ml-[45%] text-center '>Go Home</Link>
+            
+        </div>
       
        </>
     );
