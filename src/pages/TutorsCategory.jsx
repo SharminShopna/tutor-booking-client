@@ -10,14 +10,24 @@ const TutorsCategory = () => {
   const { isDarkMode } = useContext(AuthContext);
   const { category } = useParams();
   const [tutors, setTutors] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   useEffect(() => {
     axios.get(`https://assignmment.vercel.app/category/${category}`)
       .then((response) => {
+        let sortedTutors = response.data;
+
+        // Sort based on price
+        if (sortOrder === "asc") {
+          sortedTutors = sortedTutors.sort((a, b) => a.price - b.price);
+        } else {
+          sortedTutors = sortedTutors.sort((a, b) => b.price - a.price);
+        }
+
         setTutors(response.data);
         console.log(response.data);
       });
-  }, [category]);
+  }, [category, sortOrder]);
 
   return (
     <>
@@ -29,6 +39,19 @@ const TutorsCategory = () => {
         <Header />
         <div>
           <h2 className="text-center text-3xl my-4 mt-28 text-orange-500 font-bold">Tutor Booking Platform</h2>
+
+          {/* Sort Dropdown */}
+          <div className="flex justify-end mb-4">
+            <label className="mr-2 font-semibold">Sort by price:</label>
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="px-3 py-1 border border-white rounded bg-orange-500 text-white"
+            >
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+          </div>
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {tutors.map((tutor) => (
