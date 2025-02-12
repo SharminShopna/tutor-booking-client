@@ -23,7 +23,7 @@ import { HiChevronRight } from 'react-icons/hi2';
    return (
     <>
     <div>
-      <h2 className='text-3xl text-center my-6 font-bold'>All Category</h2>
+      <h2 className='text-3xl text-center my-6 text-orange-500 font-bold'>All Category</h2>
     </div>
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-12'>
        {

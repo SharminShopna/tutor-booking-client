@@ -53,7 +53,7 @@ const TutorsCategory = () => {
             </select>
           </div>
           <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 my-6 gap-6">
               {tutors.map((tutor) => (
                 <div
                   key={tutor._id}
