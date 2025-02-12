@@ -24,7 +24,8 @@ const TutorsCategory = () => {
           sortedTutors = sortedTutors.sort((a, b) => b.price - a.price);
         }
 
-        setTutors(response.data);
+        // setTutors(response.data);
+        setTutors(sortedTutors);
         console.log(response.data);
       });
   }, [category, sortOrder]);
