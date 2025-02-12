@@ -46,7 +46,7 @@ const TutorsCategory = () => {
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="px-3 py-1 border border-white rounded bg-orange-500 text-white"
+              className="px-3 py-1 border border-white rounded bg-orange-400 text-white"
             >
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
